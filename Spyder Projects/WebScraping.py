@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Apr 22 13:14:09 2020
+
 @author: vicky
 """
 
@@ -14,7 +15,8 @@ page = requests.get(URL)
 soup = BeautifulSoup(page.content, 'html.parser')
 
 results = soup.find(id='ResultsContainer')
-# print(results.prettify())
+
+print(results.prettify())
 
 job_elems = results.find_all('section', class_='card-content')
 
@@ -28,15 +30,7 @@ for job_elem in job_elems:
     print(company_elem.text)
     print(location_elem.text)
     print()
-          
-''' check for the profile from the above listling of the job and apply via the link'''
-python_jobs = results.find_all('h2',
-                               string=lambda text: "python" in text.lower())
-
-for p_job in python_jobs:
-    link = p_job.find('a')['href']
-    print(p_job.text.strip())
-    print(f"Apply here: {link}\n") 
     
-''' to check the number of job available for thoe following title(profile)'''    
-print(len(python_jobs))
+    
+python_jobs = results.find_all('h2',
+                               string=lambda text: 'python' in text.lower())    

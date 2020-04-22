@@ -6,7 +6,6 @@ Created on Wed Apr 22 13:36:50 2020
 @author: vicky
 """
 
-
 from matplotlib import pyplot as plt
 
 plt.xkcd()
